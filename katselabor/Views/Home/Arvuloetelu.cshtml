@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Arvud";
+}
+<h2>@ViewBag.Title.</h2>
+
+
+Siia tulevad arvud
+
+<ul>
+    @foreach (var arv in ViewBag.arvud) {
+        <li>@arv</li>
+    }
+</ul>
