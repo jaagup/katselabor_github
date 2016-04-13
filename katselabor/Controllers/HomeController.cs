@@ -27,6 +27,7 @@ namespace katselabor.Controllers
             return View();
         }
         public ActionResult Arvuloetelu() {
+            ViewBag.arvud = new double[] { 21.65, 11.25 };
             return View();
         }
     }
