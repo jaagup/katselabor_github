@@ -8,6 +8,6 @@ namespace Generaatorid
 {
     interface IArvudeGeneraator
     {
-        double[] looArvud(int kogus, double param1, double param2);
+        double[] looArvud(int kogus, params double[] parameetrid);
     }
 }

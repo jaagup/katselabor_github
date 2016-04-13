@@ -8,7 +8,7 @@ namespace Generaatorid
 {
     class YhtlaseJaotusegaGeneraator : IArvudeGeneraator
     {
-        public double[] looArvud(int kogus, double param1, double param2)
+        public double[] looArvud(int kogus, params double[] parameetrid)
         {
             throw new NotImplementedException();
         }
