@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Generaatorid
+namespace katselabor.Generaatorid
 {
-    interface IArvudeGeneraator
+    public interface IArvudeGeneraator
     {
         double[] looArvud(int kogus, params double[] parameetrid);
     }
