@@ -35,13 +35,13 @@ namespace katselabor.Controllers
             IArvudeGeneraator generaator = new YhtlaseJaotusegaGeneraator();
             //ViewBag.arvud = new double[] { 21.65, 11.25 };
             ViewBag.arvud = generaator.looArvud(Convert.ToInt32(id), min, 30);
-
-            logger.Trace("Sample trace message");
-            logger.Debug("Sample debug message");
-            logger.Info("Sample informational message");
-            logger.Warn("Sample warning message");
-            logger.Error("Sample error message");
-            logger.Fatal("Sample fatal error message");
+            logger.Info("Loodi " + id + " arvu");
+            //logger.Trace("Sample trace message");
+            //logger.Debug("Sample debug message");
+            //logger.Info("Sample informational message");
+            //logger.Warn("Sample warning message");
+            //logger.Error("Sample error message");
+            //logger.Fatal("Sample fatal error message");
 
             return View();
         }
