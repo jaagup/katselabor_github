@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "katselabor", "katselabor\katselabor.csproj", "{391D0E3E-4167-4197-8FBC-A12BED0F228C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generaatorid", "Generaatorid\Generaatorid.csproj", "{F8C0C998-4EBA-4E19-B344-02A228010264}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "katselabor.repos", "Generaatorid\katselabor.repos.csproj", "{F8C0C998-4EBA-4E19-B344-02A228010264}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database1", "Database1\Database1.sqlproj", "{62F046FC-4B45-4667-831F-3D567FA648BC}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "katselabor.database", "Database1\katselabor.database.sqlproj", "{62F046FC-4B45-4667-831F-3D567FA648BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "For Developers", "For Developers", "{6747A0B3-E8FA-4AB8-A07C-F54C0291DEF5}"
+	ProjectSection(SolutionItems) = preProject
+		readme_devs.txt = readme_devs.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +37,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{62F046FC-4B45-4667-831F-3D567FA648BC} = {6747A0B3-E8FA-4AB8-A07C-F54C0291DEF5}
 	EndGlobalSection
 EndGlobal

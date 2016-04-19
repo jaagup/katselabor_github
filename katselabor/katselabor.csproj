@@ -264,9 +264,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Generaatorid\Generaatorid.csproj">
+    <ProjectReference Include="..\Generaatorid\katselabor.repos.csproj">
       <Project>{f8c0c998-4eba-4e19-b344-02a228010264}</Project>
-      <Name>Generaatorid</Name>
+      <Name>katselabor.repos</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
