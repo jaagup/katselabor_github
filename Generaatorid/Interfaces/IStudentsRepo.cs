@@ -12,7 +12,7 @@ namespace katselabor.Interfaces
         void addStudent(students model);
         // get student by name
         IList<students> getAllStudentsByName(string searchQ);
-        // get all students
+        [Obsolete("getAllStudents() is deprecated, please use controller method instead.")]
         IList<students> getAllStudents();
     }
 }
