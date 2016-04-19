@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<katselabor.students>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Students";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="text" name="nameQ" />
+    <input type="submit" />
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")

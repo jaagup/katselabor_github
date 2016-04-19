@@ -9,17 +9,27 @@ using katselabor.Interfaces;
 using katselabor.Models;
 using katselabor.Repos;
 using System.Web.Mvc;
+using NLog;
 
 namespace katselabor
 {
     public class studentsController : Controller
     {
         private katselaborEntities db = new katselaborEntities();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         // GET: students
         public ActionResult Index()
         {
             return View(db.students.ToList());
+        }
+
+        // GET: students
+        [HttpPost]
+        public ActionResult Index(string nameQ)
+        {
+            logger.Info("We searched " + nameQ);
+            return RedirectToAction("Search", "Students", new { id = nameQ });
         }
 
         // GET: students/Details/5
@@ -120,12 +130,6 @@ namespace katselabor
             IList<students> resultSet = repo.getAllStudentsByName(id);
 
             model.resultSet = resultSet;
-
-            if (id == null)
-            {
-                return HttpNotFound();
-            }
-
             return View(model);
         }
 
