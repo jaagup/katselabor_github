@@ -59,6 +59,7 @@
       <DependentUpon>katselaborDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IArvudeGeneraator.cs" />
+    <Compile Include="Interfaces\IStudentsRepo.cs" />
     <Compile Include="katselaborDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,7 +79,11 @@
       <DependentUpon>katselaborDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repos\StudentRepo.cs" />
     <Compile Include="Repos\YhtlaseJaotusegaGeneraator.cs" />
+    <Compile Include="students.cs">
+      <DependentUpon>katselaborDBEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="katselaborDBEntities.Context.tt">

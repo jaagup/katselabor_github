@@ -19,9 +19,21 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="kogus" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Table1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="length" Type="nchar" MaxLength="10" />
+          <Property Name="mass" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="sex" Type="nchar" MaxLength="10" />
+          <Property Name="entryDate" Type="datetime" />
+        </EntityType>
         <EntityContainer Name="katselaborModelStoreContainer">
           <EntitySet Name="generationHistorySet" EntityType="Self.generationHistorySet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="kogustetabel" EntityType="Self.kogustetabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table1" EntityType="Self.Table1" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -37,6 +49,7 @@
         <EntityContainer Name="katselaborEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="generationHistorySets" EntityType="Self.generationHistorySet" />
           <EntitySet Name="kogustetabels" EntityType="katselaborModel.kogustetabel" />
+          <EntitySet Name="students" EntityType="katselaborModel.students" />
         </EntityContainer>
         <EntityType Name="kogustetabel">
           <Key>
@@ -44,6 +57,17 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="kogus" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="length" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="mass" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="entryDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -63,6 +87,18 @@
             <EntityTypeMapping TypeName="katselaborModel.kogustetabel">
               <MappingFragment StoreEntitySet="kogustetabel">
                 <ScalarProperty Name="kogus" ColumnName="kogus" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="katselaborModel.students">
+              <MappingFragment StoreEntitySet="Table1">
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="mass" ColumnName="mass" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
