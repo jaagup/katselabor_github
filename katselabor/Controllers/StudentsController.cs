@@ -1,89 +1,130 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace katselabor.Models
+namespace katselabor
 {
-    public class StudentsController : Controller
+    public class studentsController : Controller
     {
-        // GET: Students
+        private katselaborEntities db = new katselaborEntities();
+
+        // GET: students
         public ActionResult Index()
         {
-            return View();
+            return View(db.students.ToList());
         }
 
-        // GET: Students/Details/5
-        public ActionResult Details(int id)
+        // GET: students/Details/5
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            students students = db.students.Find(id);
+            if (students == null)
+            {
+                return HttpNotFound();
+            }
+            return View(students);
         }
 
-        // GET: Students/Create
+        // GET: students/Create
         public ActionResult Create()
         {
-            return View();
+
+            students model = new students();
+            model.entryDate = DateTime.Now;
+
+            return View(model);
         }
 
-        // POST: Students/Create
+        // POST: students/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,name,length,mass,sex,entryDate")] students students)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.students.Add(students);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+
+            return View(students);
+        }
+
+        // GET: students/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-        }
-
-        // GET: Students/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Students/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            students students = db.students.Find(id);
+            if (students == null)
             {
-                // TODO: Add update logic here
+                return HttpNotFound();
+            }
+            return View(students);
+        }
 
+        // POST: students/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,name,length,mass,sex,entryDate")] students students)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(students).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(students);
         }
 
-        // GET: Students/Delete/5
-        public ActionResult Delete(int id)
+        // GET: students/Delete/5
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            students students = db.students.Find(id);
+            if (students == null)
+            {
+                return HttpNotFound();
+            }
+            return View(students);
         }
 
-        // POST: Students/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        // POST: students/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            students students = db.students.Find(id);
+            db.students.Remove(students);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }
