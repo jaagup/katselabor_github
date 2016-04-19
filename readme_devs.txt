@@ -16,3 +16,17 @@ General logic:
 * Controller gets data from repository, fills model and returns view
 * Model contains the data filled by controller
 * View knows how to show data from the model
+
+EF
+
+Each entity in EDM is mapped with the database table. You can check the entity-table mapping by right clicking on any entity in the EDM designer -> select Table Mapping. Also, if you change any property name of the entity from designer then the table mapping would reflect that change automatically.
+*.Context.tt: This T4 template file generates a context class whenever you change Entity Data Model (.edmx file).The context class resides in {EDM Name}.context.cs file. The default context class name is {DB Name} + Entities. 
+
+Sample syntax
+    using (var ctx = new katselaborEntities())
+    {
+        ctx.generationHistorySets.Add(resultInput);                
+        ctx.SaveChanges();
+
+        logger.Info("Saving to db " + resultInput.result);
+    }

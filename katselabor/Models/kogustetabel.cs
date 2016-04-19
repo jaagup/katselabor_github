@@ -10,7 +10,6 @@ namespace katselabor
     public partial class kogustetabel
     {
         public int Id { get; set; }
-
         public int kogus { get; set; }
     }
 }
