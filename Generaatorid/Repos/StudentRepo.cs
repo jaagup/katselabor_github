@@ -8,7 +8,7 @@ using NLog;
 
 namespace katselabor.Repos
 {
-    class StudentRepo : IStudentsRepo
+    public class StudentRepo : IStudentsRepo
     {
 
         // Initialize logging stuff

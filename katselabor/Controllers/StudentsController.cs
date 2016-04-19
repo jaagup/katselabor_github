@@ -5,6 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using katselabor.Interfaces;
+using katselabor.Models;
+using katselabor.Repos;
 using System.Web.Mvc;
 
 namespace katselabor
@@ -105,6 +108,25 @@ namespace katselabor
                 return HttpNotFound();
             }
             return View(students);
+        }
+
+        // GET: students/search/myname
+        public ActionResult Search(string id)
+        {
+            SearchModel model = new SearchModel();
+
+
+            IStudentsRepo repo = new StudentRepo();
+            IList<students> resultSet = repo.getAllStudentsByName(id);
+
+            model.resultSet = resultSet;
+
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(model);
         }
 
         // POST: students/Delete/5
