@@ -9,10 +9,13 @@
 
 @using (Html.BeginForm())
 {
-    <input type="text" name="nameQ" />
-    <input type="submit" />
+    <div class="form-group">
+        <input type="text" name="nameQ" class="form-control col-md-2" />
+        <span class="glyphicon glyphicon-search"></span>
+        <input type="submit" class="form-control col-md-2" name="Otsi" />
+    </div>
 }
-
+  <br />  
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

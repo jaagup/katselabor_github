@@ -6,7 +6,9 @@
 }
 
 <h2>Search</h2>
-
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 <table class="table">
     <tr>
         <th>
@@ -48,11 +50,11 @@
             <td>
                 @if (item == null) { }
                 else {
-                    Html.ActionLink("Edit", "Edit", new { id = item.Id });
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id });
                     @:|
-                    Html.ActionLink("Details", "Details", new { id = item.Id });
+                    @Html.ActionLink("Details", "Details", new { id = item.Id });
                     @:|
-                    Html.ActionLink("Delete", "Delete", new { id = item.Id });
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id });
                 };
                 
             </td>
