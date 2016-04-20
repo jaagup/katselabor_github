@@ -1,0 +1,67 @@
+﻿@model katselabor.Models.SearchModel
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entryDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.resultSet)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entryDate)
+            </td>
+            <td>
+                @if (item == null) { }
+                else {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id });
+                    @:|
+                    @Html.ActionLink("Details", "Details", new { id = item.Id });
+                    @:|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id });
+                };
+                
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

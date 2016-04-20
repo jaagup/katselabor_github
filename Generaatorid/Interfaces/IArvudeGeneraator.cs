@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace katselabor.Generaatorid
+namespace katselabor.Interfaces
 {
     public interface IArvudeGeneraator
     {
-        double[] looArvud(int kogus, params double[] parameetrid);
+        double[] createRandomNumbers(int copys, params double[] maxandmin);
+        void saveGenerated(generationHistorySet resultInput);
+
+
     }
 }

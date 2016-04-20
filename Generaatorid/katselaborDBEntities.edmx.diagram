@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b789260889a4adcb54849172bc09964" Name="Diagram1">
+        <EntityTypeShape EntityType="katselaborModel.generationHistorySet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="katselaborModel.kogustetabel" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="katselaborModel.students" Width="1.5" PointX="6.375" PointY="0.875" />
+        <EntityTypeShape EntityType="katselaborModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="katselaborModel.C__RefactorLog" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="katselaborModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="katselaborModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="katselaborModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="katselaborModel.AspNetUser" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="katselaborModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="katselaborModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="katselaborModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
