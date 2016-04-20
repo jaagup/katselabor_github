@@ -49,7 +49,7 @@ namespace katselabor.Controllers
 
             // Saving same data to DB using EF from repo
             generationHistorySet resultSet = new generationHistorySet();
-            resultSet.result = Convert.ToString(arvud);
+            resultSet.result = Convert.ToString(String.Join(",", arvud));
             generaator.saveGenerated(resultSet);
 
             // Displaying to view
